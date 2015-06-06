@@ -13,25 +13,22 @@ render = (hash) ->
   API_REFS_FORMAT = encodeURIComponent '<src> <dst> <linkname>'
   d3.xhr "/api/v0/refs?arg=#{hash}&recursive&format=#{API_REFS_FORMAT}", (error, xhr) ->
     data = xhr.responseText
-
-    dict = {}
+    tree = {}
 
     refApiPattern = /"Ref": "(\S+) (\S+) (\S+)\\n"/g
     while match = refApiPattern.exec data
       [whole, src, dst, linkname] = match
-      dict[src] ?= []
-      dict[src].push
+      tree[src] ?= []
+      tree[src].push
         Hash: dst
         Name: linkname
 
-    children = getDecendants hash, dict
+    children = getDecendants hash, tree
 
     @root = children: children
     #    console.log JSON.stringify @root, null, 2
-
     @root.x0 = h / 2
     @root.y0 = 0
-
     @root.children.forEach toggleAll
     update @root
 

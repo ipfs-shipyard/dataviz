@@ -19,21 +19,21 @@ render = function(hash) {
   var API_REFS_FORMAT;
   API_REFS_FORMAT = encodeURIComponent('<src> <dst> <linkname>');
   return d3.xhr("/api/v0/refs?arg=" + hash + "&recursive&format=" + API_REFS_FORMAT, function(error, xhr) {
-    var children, data, dict, dst, linkname, match, refApiPattern, src, whole;
+    var children, data, dst, linkname, match, refApiPattern, src, tree, whole;
     data = xhr.responseText;
-    dict = {};
+    tree = {};
     refApiPattern = /"Ref": "(\S+) (\S+) (\S+)\\n"/g;
     while (match = refApiPattern.exec(data)) {
       whole = match[0], src = match[1], dst = match[2], linkname = match[3];
-      if (dict[src] == null) {
-        dict[src] = [];
+      if (tree[src] == null) {
+        tree[src] = [];
       }
-      dict[src].push({
+      tree[src].push({
         Hash: dst,
         Name: linkname
       });
     }
-    children = getDecendants(hash, dict);
+    children = getDecendants(hash, tree);
     this.root = {
       children: children
     };
