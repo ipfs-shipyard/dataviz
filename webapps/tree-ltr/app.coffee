@@ -1,8 +1,9 @@
-DEMO_HASH = 'QmZq1TFx4RF1LbNb9RmEMZxaXpB9UjcFTLRCT4GHzy3Kk2'
+DEMO_HASH = 'QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D'  # example viewer directory
+DEBUG = false
 
 app = ->
   hash = window.location.hash[1..]
-  console.log hash
+  debug hash
   if hash.length > 0
     render hash
   else
@@ -11,7 +12,10 @@ app = ->
 
 render = (hash) ->
   API_REFS_FORMAT = encodeURIComponent '<src> <dst> <linkname>'
-  d3.xhr "/api/v0/refs?arg=#{hash}&recursive&format=#{API_REFS_FORMAT}", (error, xhr) ->
+  apiPath = "/api/v0/refs?arg=#{hash}&recursive&format=#{API_REFS_FORMAT}"
+  debug apiPath
+  d3.xhr apiPath, (error, xhr) ->
+    debug arguments
     data = xhr.responseText
     tree = {}
 
@@ -26,7 +30,7 @@ render = (hash) ->
     children = getDecendants hash, tree
 
     @root = children: children
-    #    console.log JSON.stringify @root, null, 2
+    debug JSON.stringify @root, null, 2
     @root.x0 = h / 2
     @root.y0 = 0
     @root.children.forEach toggleAll
@@ -42,11 +46,15 @@ getDecendants = (ref, dict) ->
       child.children = decendants if decendants?
     children
 
+debug = (args...) ->
+  if DEBUG
+    console.debug args...
+
 app()
 
 
 
-# Format of internal `dict`:
+# Format of internal `tree`:
 #
 # {
 #   "Qmcav25eTinMV632w9zdyXsFENDz5FCWjrMEVU7Nzy2v98": [
