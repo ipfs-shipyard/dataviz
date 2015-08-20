@@ -19,7 +19,7 @@ render = (hash) ->
     data = xhr.responseText
     tree = {}
 
-    refApiPattern = /"Ref": "(\S+) (\S+) (\S+)\\n"/g
+    refApiPattern = /"Ref": "(\S+) (\S+) (\S+)[\\n]?"/g
     while match = refApiPattern.exec data
       [whole, src, dst, linkname] = match
       tree[src] ?= []

@@ -28,7 +28,7 @@ render = function(hash) {
     debug(arguments);
     data = xhr.responseText;
     tree = {};
-    refApiPattern = /"Ref": "(\S+) (\S+) (\S+)\\n"/g;
+    refApiPattern = /"Ref": "(\S+) (\S+) (\S+)[\\n]?"/g;
     while (match = refApiPattern.exec(data)) {
       whole = match[0], src = match[1], dst = match[2], linkname = match[3];
       if (tree[src] == null) {
