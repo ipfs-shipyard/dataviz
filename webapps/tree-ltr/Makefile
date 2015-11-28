@@ -1,5 +1,5 @@
 
-url="http://localhost:5001/ipfs/"
+url="http://localhost:8080/ipfs/"
 
 publish: build
 	@export hash=$(shell ipfs add -r -q . | tail -n1) && \
