@@ -31,14 +31,14 @@ We have adapted a [D3 left-to-right tree example by Mike Bostock](http://mbostoc
 This can be served up via IPFS, and read data from IPFS.  For example,
 the tree visualizing its own source code:
 
-https://ipfs.io/ipfs/QmNxP1q3AvvwhW4CjszmH4BTKgbB5sqN3rzjJAQofWBnVd/viz#QmNxP1q3AvvwhW4CjszmH4BTKgbB5sqN3rzjJAQofWBnVd
+https://ipfs.io/ipfs/QmUri6s7RSzyks4yKJcEQGtfWHCSXUNko32kZtUhtDCyUd/viz#QmUri6s7RSzyks4yKJcEQGtfWHCSXUNko32kZtUhtDCyUd
 
 The first hash is the visualization; the second hash is whatever is being visualized.
 
 For example, to explore Brewster Kahle's blog, which has the address
 `QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr`, we would visit:
 
-https://ipfs.io/ipfs/QmNxP1q3AvvwhW4CjszmH4BTKgbB5sqN3rzjJAQofWBnVd/viz#QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr
+https://ipfs.io/ipfs/QmUri6s7RSzyks4yKJcEQGtfWHCSXUNko32kZtUhtDCyUd/viz#QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr
 
 ### To install and run it locally:
 
