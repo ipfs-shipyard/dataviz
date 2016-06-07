@@ -4,7 +4,6 @@ API_REFS_FORMAT = encodeURIComponent '<src> <dst> <linkname>'
 
 app = ->
   hash = window.location.hash[1..]
-  debug hash
   if hash.length > 0
     render hash
   else
@@ -13,7 +12,6 @@ app = ->
 
 render = (hash) ->
   apiPath = "/api/v0/refs?arg=#{hash}&recursive&format=#{API_REFS_FORMAT}"
-  debug apiPath
   d3.xhr apiPath, (error, xhr) ->
     data = xhr.responseText
     tree = {}
