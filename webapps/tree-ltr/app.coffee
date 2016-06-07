@@ -1,5 +1,6 @@
-DEMO_HASH = 'QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D'  # example viewer directory
-DEBUG = false
+DEMO_HASH = 'Qmb1nMs5REHEf97RX1RZ5wDKijKsNB3fP5A6Bj5XMdcgB7'  # archive of ipfs websites
+DEBUG = true
+API_REFS_FORMAT = encodeURIComponent '<src> <dst> <linkname>'
 
 app = ->
   hash = window.location.hash[1..]
@@ -11,26 +12,25 @@ app = ->
     window.location.reload()
 
 render = (hash) ->
-  API_REFS_FORMAT = encodeURIComponent '<src> <dst> <linkname>'
   apiPath = "/api/v0/refs?arg=#{hash}&recursive&format=#{API_REFS_FORMAT}"
   debug apiPath
   d3.xhr apiPath, (error, xhr) ->
-    debug arguments
     data = xhr.responseText
     tree = {}
-
-    refApiPattern = /"Ref": "(\S+) (\S+) (\S+)[\\n]?"/g
-    while match = refApiPattern.exec data
-      [whole, src, dst, linkname] = match
-      tree[src] ?= []
-      tree[src].push
-        Hash: dst
-        Name: linkname
+    lines = data.split "\n"
+    for line in lines
+      continue unless line.trim()
+      datum = JSON.parse line
+      [src, dst, linkname] = datum.Ref.split ' '
+      if src and dst and linkname   # links with no name are file chunks, ignore those
+        tree[src] ?= []
+        tree[src].push
+          Hash: dst
+          Name: linkname
 
     children = getDecendants hash, tree
 
     @root = children: children
-    debug JSON.stringify @root, null, 2
     @root.x0 = h / 2
     @root.y0 = 0
     @root.children.forEach toggleAll
@@ -46,7 +46,7 @@ getDecendants = (ref, dict) ->
       child.children = decendants if decendants?
     children
 
-debug = (args...) ->
+d = debug = (args...) ->
   if DEBUG
     console.debug args...
 
