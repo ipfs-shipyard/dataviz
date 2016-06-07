@@ -31,14 +31,15 @@ We have adapted a [D3 left-to-right tree example by Mike Bostock](http://mbostoc
 This can be served up via IPFS, and read data from IPFS.  For example,
 the tree visualizing its own source code:
 
-https://ipfs.io/ipfs/QmYShjC6KjVPns2AuY77rbDPL1XEygWEo2485r9qL6EYTc/viz#QmYShjC6KjVPns2AuY77rbDPL1XEygWEo2485r9qL6EYTc
+https://v04x.ipfs.io/ipfs/QmX5smVTZfF8p1VC8Y3VtjGqjvDVPWvyBk24JgvnMwHtjC/viz#QmX5smVTZfF8p1VC8Y3VtjGqjvDVPWvyBk24JgvnMwHtjC
 
 The first hash is the visualization; the second hash is whatever is being visualized.
 
-For example, to explore Brewster Kahle's blog, which has the address
-`QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr`, we would visit:
+For example, to explore Brewster Kahle's blog (quite large, give it a minute to load), we would visit:
 
-https://ipfs.io/ipfs/QmYShjC6KjVPns2AuY77rbDPL1XEygWEo2485r9qL6EYTc/viz#QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr
+https://v04x.ipfs.io/ipfs/QmX5smVTZfF8p1VC8Y3VtjGqjvDVPWvyBk24JgvnMwHtjC/viz#QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr
+
+(To see the raw blog content, visit <https://ipfs.io/ipfs/QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr>)
 
 ### To install and run it locally:
 
