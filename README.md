@@ -3,13 +3,39 @@
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
 [![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)
 [![](https://img.shields.io/badge/freenode-%23ipfs-blue.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23ipfs)
-
-![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)
-
 [![Stories in Ready](https://badge.waffle.io/ipfs/dataviz.svg?label=ready&title=Ready)](http://waffle.io/ipfs/dataviz)
 
+> ipfs data visualizations
 
-## graphmd
+## Table of Contents
+
+- [Install](#install)
+- [Usage](#usage)
+  - [graphmd](#graphmd)
+  - [D3 Tree](#d3-tree)
+- [Contribute](#contribute)
+  - [Want to hack on IPFS?](#want-to-hack-on-ipfs)
+- [License](#license)
+
+## Install
+
+To install and run the D3 Tree locally, first [install IPFS](https://ipfs.io/docs/install/). Then:
+
+
+```sh
+ipfs daemon
+# Open a new terminal window
+git clone git@github.com:ipfs/dataviz.git
+cd dataviz/webapps/tree-ltr
+make
+```
+
+This should load up the tree viz in your browser.
+Change the IPFS hash at the end of the URL to see any other IPFS tree.
+
+## Usage
+
+### graphmd
 
 ** Status: stable **
 
@@ -20,7 +46,7 @@ Graphs of Merkel DAGs from the command line.
 More information here: https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmQwAP9vFjbCtKvD8RkJdCvPHqLQjZfW7Mqbbqx18zd8j7/graphmd/README.md
 
 
-## D3 Tree
+### D3 Tree
 
 ** Status: experimental **
 
@@ -41,16 +67,16 @@ https://v04x.ipfs.io/ipfs/QmX5smVTZfF8p1VC8Y3VtjGqjvDVPWvyBk24JgvnMwHtjC/viz#Qma
 
 (To see the raw blog content, visit <https://ipfs.io/ipfs/QmavE42xtK1VovJFVTVkCR5Jdf761QWtxmvak9Zx718TVr>)
 
-### To install and run it locally:
+## Contribute
 
-[Install IPFS](https://ipfs.io/docs/install/)
+Feel free to join in. All welcome.
 
-```
-ipfs daemon
-git clone git@github.com:ipfs/dataviz.git
-cd dataviz/webapps/tree-ltr
-make
-```
+This repository falls under the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
 
-This should load up the tree viz in your browser.
-Change the IPFS hash at the end of the URL to see any other IPFS tree.
+### Want to hack on IPFS?
+
+[![](https://cdn.rawgit.com/jbenet/contribute-ipfs-gif/master/img/contribute.gif)](https://github.com/ipfs/community/blob/master/contributing.md)
+
+## License
+
+MIT
